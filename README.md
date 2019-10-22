@@ -9,6 +9,8 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 - 0.0.5 (`2018.01.19.2100`)
   - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.5.zip?raw=true)
 
+## [All Check Version](https://github.com/Sotaneum/Question-Bank-Student/tree/all_check_mode)
+
 ## Old Version
 
 - [0.0.4 (`2018.01.19.0000`)](https://github.com/Sotaneum/Question-Bank-Student/tree/567e3d238ac6027d2d98cdd2b84b192b983e9524)
