@@ -39,6 +39,9 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 
     ![result](./assets/result.png)
 
+  - 잠깐, 이미지는 어떻게 표시가 되나요?
+    ![picture](./assets/picture.png)
+
 ## What did you learn
 
 - VB.NET 기반 언어를 `입출력`에 대해 공부할 수 있었습니다.
