@@ -24,14 +24,26 @@ Module OpenData
                 '불러온게 아무런 정보가 없다면 종료한다.
                 If Not temp Is Nothing Then
                     Dim i As Integer
+                    Dim setData As ArrayList = New ArrayList '항목을 저장할 데이터
+                    Dim num As String   '문제 고유번호
+                    Dim title As String '문제 이름
+                    Dim url As String   '문제 이미지
+                    Dim current As String   '문제 답
                     '데이터를 check변수에 입력된대로 나누어 저장한다.
                     data = temp.Split(check)
                     '다중 문항에 대한 설정
                     For i = 0 To data.Count - 1
                         data(i) = data(i).Replace("\n", vbCrLf)
                     Next
+                    num = data(0)
+                    title = data(1)
+                    current = data(2)
+                    url = data(3)
+                    For i = 4 To data.Count - 1
+                        setData.Add(data(i))
+                    Next
                     '그 데이터를 가지고 전체 문항에 저장한다.
-                    Big_Data.Add(New que(data(0), data(1), data(2), data(3), data(4), data(5), data(6), data(7), data(8), data(9)))
+                    Big_Data.Add(New que(num, title, setData, current, url))
                 End If
             Loop Until temp Is Nothing
             '최대 랜덤 문제를 정한다.
@@ -87,7 +99,7 @@ Module OpenData
             size = Random_Data.Count
         End If
         For i = 0 To size - 1
-            count += ob_getRandomQue(i).getOK()
+            count += ob_getRandomQue(i).getAnswer()
         Next
         Return count
     End Function
