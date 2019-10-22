@@ -31,11 +31,11 @@ Partial Class frm_main
         Me.cb_B = New System.Windows.Forms.CheckBox()
         Me.lb_Question = New System.Windows.Forms.Label()
         Me.cb_A = New System.Windows.Forms.CheckBox()
-        Me.btn_Next = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.lb_Num = New System.Windows.Forms.Label()
         Me.btn_help = New System.Windows.Forms.Button()
         Me.lb_copy = New System.Windows.Forms.Label()
+        Me.btn_Next = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -149,17 +149,6 @@ Partial Class frm_main
         Me.cb_A.Text = "1"
         Me.cb_A.UseVisualStyleBackColor = True
         '
-        'btn_Next
-        '
-        Me.btn_Next.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btn_Next.Font = New System.Drawing.Font("맑은 고딕", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.btn_Next.Location = New System.Drawing.Point(0, 568)
-        Me.btn_Next.Name = "btn_Next"
-        Me.btn_Next.Size = New System.Drawing.Size(925, 30)
-        Me.btn_Next.TabIndex = 0
-        Me.btn_Next.Text = "NEXT >"
-        Me.btn_Next.UseVisualStyleBackColor = True
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.lb_Num)
@@ -178,14 +167,14 @@ Partial Class frm_main
         Me.lb_Num.Location = New System.Drawing.Point(0, 0)
         Me.lb_Num.Margin = New System.Windows.Forms.Padding(0)
         Me.lb_Num.Name = "lb_Num"
-        Me.lb_Num.Size = New System.Drawing.Size(161, 25)
+        Me.lb_Num.Size = New System.Drawing.Size(439, 25)
         Me.lb_Num.TabIndex = 1
         Me.lb_Num.Text = "1"
         '
         'btn_help
         '
         Me.btn_help.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_help.Location = New System.Drawing.Point(164, 3)
+        Me.btn_help.Location = New System.Drawing.Point(442, 3)
         Me.btn_help.Name = "btn_help"
         Me.btn_help.Size = New System.Drawing.Size(153, 19)
         Me.btn_help.TabIndex = 2
@@ -194,12 +183,24 @@ Partial Class frm_main
         '
         'lb_copy
         '
-        Me.lb_copy.Location = New System.Drawing.Point(323, 0)
+        Me.lb_copy.Font = New System.Drawing.Font("맑은 고딕", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        Me.lb_copy.Location = New System.Drawing.Point(601, 0)
         Me.lb_copy.Name = "lb_copy"
         Me.lb_copy.Size = New System.Drawing.Size(297, 25)
         Me.lb_copy.TabIndex = 3
         Me.lb_copy.Text = "ⓒ2018 이동건(cyydo96@naver.com)"
         Me.lb_copy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btn_Next
+        '
+        Me.btn_Next.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btn_Next.Font = New System.Drawing.Font("맑은 고딕", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        Me.btn_Next.Location = New System.Drawing.Point(0, 568)
+        Me.btn_Next.Name = "btn_Next"
+        Me.btn_Next.Size = New System.Drawing.Size(925, 30)
+        Me.btn_Next.TabIndex = 0
+        Me.btn_Next.Text = "NEXT >"
+        Me.btn_Next.UseVisualStyleBackColor = True
         '
         'frm_main
         '

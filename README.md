@@ -6,10 +6,13 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 
 ## Download
 
-- 0.0.2 (`2018.01.18.1254`)
-  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.2.zip?raw=true)
-- 0.0.1 (`2018.01.18.1240`)
-  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.1.zip?raw=true)
+- 0.0.3 (`2018.01.18.1800`)
+  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.3.zip?raw=true)
+
+## Old Version
+
+- [0.0.2 (`2018.01.18.1254`)](https://github.com/Sotaneum/Question-Bank-Student/tree/4ef12feed7f07255cb78f052fe5c15469ab7a2f4)
+- [0.0.1 (`2018.01.18.1240`)](https://github.com/Sotaneum/Question-Bank-Student/tree/3d01209d149f4ea49a86476f4ff32a007bff4023)
 
 ## Info
 
@@ -46,6 +49,10 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 - 사진이 필요한 문제에 대해서는 어떻게 처리할 지 고민을 했습니다.
 
 ## Modify Content
+
+- 2018.01.18.1800
+  1. 랜덤코드 변경
+  2. 문제 고유번호도 화면에 출력하도록 설정
 
 - 2018.01.18.1254
   1. 기타 마이너 패치

@@ -2,11 +2,13 @@
     Public frm As frm_main
     Private index As Integer
     Private Local_Folder As String
+    Private state As Boolean = False
+    Private test_mode As Boolean = False
     '질문 데이터를 받아 화면에 표시
     Function setData(question As String, a As String, Optional b As String = "", Optional c As String = "", Optional d As String = "", Optional e As String = "", Optional f As String = "")
         Dim count As Integer = 0
         lb_Question.Text = question
-        lb_Num.Text = index + 1 & ""
+        lb_Num.Text = index + 1 & "" & " (No." & ob_getRandomQue(index).getNum & ") "
 
         'A
         cb_A.Checked = False
@@ -129,6 +131,11 @@
                 MAX_RANDOM = CInt(getCommandLine(4))
             End If
         End If
+        '시험 모드
+        If (test_mode = True) Then
+            checksum = "gnyontu39"
+            Local_Folder = "CCNA_2017_10_10"
+        End If
         '외부에서 값을 받지 못한 경우 오류 발생 후 프로그램 종료
         If Local_Folder = "" Or (Not checksum = "gnyontu39") Then
             'Local_Folder = "CCNA_2017_10_102"
@@ -155,6 +162,7 @@
         ob_setRandomQue()
         '랜덤 문제을 불러온다.
         Load_Next()
+        state = True
     End Sub
 
     Private Sub btn_Next_Click(sender As Object, e As EventArgs) Handles btn_Next.Click
@@ -189,6 +197,7 @@
             Load_Next()
         ElseIf (btn_Next.Text = "Restart") Then
             '다시시작일 경우 시스템을 다시 시작한다.
+            state = False
             Application.Restart()
         End If
     End Sub
@@ -205,5 +214,17 @@
 
     Private Sub btn_help_Click(sender As Object, e As EventArgs) Handles btn_help.Click
         System.Diagnostics.Process.Start("http://sotaneum.tistory.com")
+    End Sub
+
+    Private Sub frm_main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim num As Integer
+        num = index - 1
+        If (btn_Next.Text = "NEXT >") Then
+            num = index
+        End If
+        If state = True Then
+            MsgBox("시험을 포기하셨습니다. ! 그래도!  고생했습니다.", vbOKOnly, "Finish!")
+            MsgBox("시도한 문제 " & num & "개 중에 " & ob_getCurrentResult(num) & "개 맞았습니다.")
+        End If
     End Sub
 End Class
