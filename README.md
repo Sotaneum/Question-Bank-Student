@@ -7,7 +7,7 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 ## Download
 
 - 0.0.1 (`2018.01.18.1240`)
-  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.1?raw=true)
+  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.1.zip?raw=true)
 
 ## Info
 
