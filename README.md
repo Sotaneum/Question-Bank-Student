@@ -6,11 +6,12 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 
 ## Download
 
-- 0.0.4 (`2018.01.19.0000`)
-  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.4.zip?raw=true)
+- 0.0.5 (`2018.01.19.2100`)
+  - [Windows x86 zip file](./build/Question-Bank-Student_x86_0.0.5.zip?raw=true)
 
 ## Old Version
 
+- [0.0.4 (`2018.01.19.0000`)](https://github.com/Sotaneum/Question-Bank-Student/tree/567e3d238ac6027d2d98cdd2b84b192b983e9524)
 - [0.0.3 (`2018.01.18.1800`)](https://github.com/Sotaneum/Question-Bank-Student/tree/7b09c3ca43f6dd851c1a689e00409c0faf2fd551)
 - [0.0.2 (`2018.01.18.1254`)](https://github.com/Sotaneum/Question-Bank-Student/tree/7b09c3ca43f6dd851c1a689e00409c0faf2fd551/build)
 - [0.0.1 (`2018.01.18.1240`)](https://github.com/Sotaneum/Question-Bank-Student/tree/3d01209d149f4ea49a86476f4ff32a007bff4023)
@@ -19,14 +20,15 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 
 - `문제를 푸는` 프로그램입니다. 이 프로그램은 `문제은행(Question-Bank)` 프로젝트의 일부입니다.
 - `Question-Bank`프로젝트의 [`Question-Bank-Teacher`](https://github.com/Sotaneum/Question-Bank-Teacher)와 호환됩니다.
+- 시험을 본 `시간`도 표시가 됩니다.
 - `프로그램을 실행`하는 방법은 다음과 같습니다.
   - Command 창을 켜서 아래와 같이 입력합니다.
 
     ![cmd](./assets/cmd.png)
 
     ```bash
-    '  파일 명   |   작성자  |문제집 이름 | 구분자 | 전체에서 이 수만큼 시험봅니다.'
-    > 문제은행.exe gnyontu39 Exam_ / 10
+    '  파일 명   |   작성자  |문제집 이름 | 구분자 | 전체에서 이 수만큼 시험봅니다. | 시험볼 번호'
+    > 문제은행.exe gnyontu39 Exam_ / 10 1,5,10,12,15,17,18,19,20,21
     ```
 
   - 아래와 같이 문제가 표시가 되며 답을 선택 후 `Check/Finish 버튼`을 누르면 정답여부가 나옵니다.
@@ -50,6 +52,11 @@ Question Bank Student :: 문제은행에서 문제를 푸는 프로그램입니�
 - 사진이 필요한 문제에 대해서는 어떻게 처리할 지 고민을 했습니다.
 
 ## Modify Content
+
+- 2018.01.19.2100
+  1. 테스트 모드 기능 강화
+  2. 12번째 띄어쓰기마다 엔터 추가 (제목 부분)
+  3. 프로그램 사용시간 표시
 
 - 2018.01.19.0000
   1. 문제 선택 한도 제거

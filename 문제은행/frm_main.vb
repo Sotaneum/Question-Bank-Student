@@ -10,7 +10,12 @@
     Private sys_BookChecker As String = "" '문제집의 구분
     Private sys_BookCountMax As Integer = 20 '문제 문항 개수
     Private sys_Test As Boolean = False '시스템 구동이 테스트 모드인가?
+    Private sys_Test_Folder As String = "CCNA_01_140"  '테스트 모드로 구동시 실행되는 폴더
+    Private sys_Test_list As String = "57,198,368,427,15,89,156,168,189,200,273,353,356,372,388,6,20,77,133,204,221,231,264,333,363,369,371,402,414,418" '테스트 모드로 구동시 실행되는 리스트
     Private sys_shutdown = False '시스템을 그냥 끄는 경우 True
+    Private sys_time As Integer = 0 '시간을 저장한다.
+    Private sys_title As String = "문제은행 Beta ! Play Time : "
+    Private sys_list As String = ""
 
     'Book System
     Private bk_index As Integer = 0
@@ -26,7 +31,7 @@
 
     '화면에 문제를 표시하는 함수
     Function print_question(num As String, title As String, item As ArrayList, Optional image As Image = Nothing)
-        Dim size As Integer = item.Count + 1 '항목 개수 + 제목
+        Dim size As Integer = item.Count + 2 '항목 개수 + 제목 + 번호
         Dim i As Integer
         Dim tbl_question As TableLayoutPanel = New TableLayoutPanel
         Dim lb_title As Label = New Label
@@ -35,10 +40,6 @@
         Dim cb_item As CheckBox = New CheckBox
         '이미지가 있을 경우 사이즈 증가
         If Not image Is Nothing Then
-            size += 1
-        End If
-        '고유 번호 있을 경우 사이즈 증가
-        If Not num = "" Then
             size += 1
         End If
         '이미 컨트롤이 있을 경우 지워버린다.
@@ -62,6 +63,9 @@
             .Name = "lb_num"
             .Dock = DockStyle.Fill
             .Text = bk_index + 1
+            If Not num = "" Then
+                .Text += " ( No. " & num & " )"
+            End If
             .Font = New Font("맑은 고딕", 12, Font.Style.Bold)
             If num = "" Then
                 .Text += " (No. " & num & ")"
@@ -70,10 +74,20 @@
 
         tbl_question.Controls.Add(lb_num)
 
+        '제목을 단어를 나눈다.
+        Dim test_title() As String = title.Split(" ")
+        title = test_title(0) + " "
+        For i = 1 To test_title.Length - 1
+            title += test_title(i) & " "
+            If i Mod 13 = 0 Then
+                title += vbCrLf
+            End If
+        Next
+
         '문제 설정
         With lb_title
             .Name = "lb_title"
-            .Dock = DockStyle.Fill
+            .AutoSize = True
             .Text = title
             .Font = New Font("맑은 고딕", 12)
         End With
@@ -137,6 +151,9 @@
                     sys_BookChecker = command(3)
                     If command.Count >= 4 Then
                         sys_BookCountMax = CInt(command(4))
+                        If command.Count >= 5 Then
+                            sys_list = command(5)
+                        End If
                     Else
                         sys_BookCountMax = 10
                     End If
@@ -146,15 +163,17 @@
                 End If
             End If
         ElseIf sys_Test = True Then
-            sys_BookPath = "Exam_"
+            sys_BookPath = sys_Test_Folder
             sys_BookChecker = "^"
+            sys_list = sys_Test_list
             sys_BookCountMax = 20
         Else
             sys_shutdown = True
             Me.Close()
             Exit Sub
         End If
-        If ob_LoadData(sys_BookPath, sys_BookChecker, sys_BookCountMax) = 0 Then
+
+        If ob_LoadData(sys_BookPath, sys_BookChecker, sys_BookCountMax, sys_list) = 0 Then
             sys_shutdown = True
             Me.Close()
             Exit Sub
@@ -220,5 +239,16 @@
 
     Private Sub btn_copyright_Click(sender As Object, e As EventArgs) Handles btn_copyright.Click
         System.Diagnostics.Process.Start("http://duration.digimoon.net")
+    End Sub
+
+    Private Sub tm_now_Tick(sender As Object, e As EventArgs) Handles tm_now.Tick
+        Dim hour As Integer
+        Dim min As Integer
+        Dim sec As Integer
+        sys_time += 1
+        hour = (sys_time / (60 * 60)) Mod 60
+        min = (sys_time / 60) Mod 60
+        sec = sys_time Mod 60
+        Me.Text = sys_title & hour & "시간 " & min & "분 " & sec & "초"
     End Sub
 End Class

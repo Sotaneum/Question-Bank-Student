@@ -22,6 +22,7 @@ Partial Class frm_main
     '코드 편집기에서는 수정하지 마세요.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
         Me.btn_Next = New System.Windows.Forms.Button()
         Me.tbl_main = New System.Windows.Forms.TableLayoutPanel()
@@ -29,6 +30,7 @@ Partial Class frm_main
         Me.btn_help = New System.Windows.Forms.Button()
         Me.btn_copyright = New System.Windows.Forms.Button()
         Me.btn_info = New System.Windows.Forms.Button()
+        Me.tm_now = New System.Windows.Forms.Timer(Me.components)
         Me.tbl_main.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -105,6 +107,11 @@ Partial Class frm_main
         Me.btn_info.Text = "총 200개의 문항 중 3개 진행 중"
         Me.btn_info.UseVisualStyleBackColor = True
         '
+        'tm_now
+        '
+        Me.tm_now.Enabled = True
+        Me.tm_now.Interval = 1000
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
@@ -126,4 +133,5 @@ Partial Class frm_main
     Friend WithEvents btn_help As Button
     Friend WithEvents btn_copyright As Button
     Friend WithEvents btn_info As Button
+    Friend WithEvents tm_now As Timer
 End Class

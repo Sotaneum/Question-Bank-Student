@@ -3,9 +3,19 @@
 Module OpenData
     Private Big_Data As ArrayList = New ArrayList()
     Private Random_Data As ArrayList
+    Private User_Select As ArrayList = New ArrayList
     Private MAX_RANDOM_DATA As Integer
+
+    Private Function setUser_Select(data As String)
+        Dim list() As String = data.Split(",")
+        Dim i As Integer
+        For i = 0 To list.Count - 1
+            User_Select.Add(list(i))
+        Next
+    End Function
+
     '데이터를 파일로부터 읽어서 저장한다.
-    Function ob_LoadData(file_name As String, Optional check As String = "^", Optional MAX_RANDOM As Integer = 10)
+    Function ob_LoadData(file_name As String, Optional check As String = "^", Optional MAX_RANDOM As Integer = 10, Optional DataList As String = "")
         Dim path As String = Application.StartupPath & "\" & file_name & "\DATA.dat"
         '파일 존재 여부를 확인한다.
         If Not File.Exists(path) Then
@@ -18,6 +28,9 @@ Module OpenData
             Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(path)
             Dim temp As String
             Dim data() As String
+            If Not DataList = "" Then
+                setUser_Select(DataList)
+            End If
             '파일을 줄단위로 불러온다.
             Do
                 temp = reader.ReadLine
@@ -43,7 +56,16 @@ Module OpenData
                         setData.Add(data(i))
                     Next
                     '그 데이터를 가지고 전체 문항에 저장한다.
-                    Big_Data.Add(New que(num, title, setData, current, url))
+                    If Not DataList = "" Then
+                        For i = 0 To User_Select.Count - 1
+                            If User_Select(i) = num Then
+                                Big_Data.Add(New que(num, title, setData, current, url))
+                                Exit For
+                            End If
+                        Next
+                    Else
+                        Big_Data.Add(New que(num, title, setData, current, url))
+                    End If
                 End If
             Loop Until temp Is Nothing
             '최대 랜덤 문제를 정한다.
