@@ -10,10 +10,10 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("문제은행")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("http://sotaneum.tistory.com/")>
+<Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("문제은행")>
-<Assembly: AssemblyCopyright("Copyright ©  2018 이동건")>
-<Assembly: AssemblyTrademark("슬픔")>
+<Assembly: AssemblyCopyright("Copyright ©  2018")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 지정되도록 할 수 있습니다.
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.0.0.1")>
-<Assembly: AssemblyFileVersion("0.0.0.1")>
+<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("1.0.0.0")>
